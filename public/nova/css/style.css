@@ -1,0 +1,684 @@
+/*------------------------------------------------------------------
+[Novo CSS]
+
+Project:	Novo - ThemeForest
+Version:	1.0
+Last change:	October 9, 2017
+Author:	Xioyuna
+
+
+[Table of contents]
+
+1. General
+2. Navbar
+3. Panel
+4. Home
+5. Post Single
+6. Categories
+7. Profile
+8. Contact
+9. Shortcodes
+
+-------------------------------------------------------------------*/
+
+/************** 1. General *************/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  background: #FFF;
+}
+
+/* Avoid scroll content overflow */
+.page * {
+  max-width: 100%;
+}
+
+.page .navbar * {
+  max-width: none;
+}
+
+p, strong, b, .post-content a {
+  line-height: 1.8em;
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+strong, b {
+  font-weight: 500;
+}
+
+p {
+  color: #8f979a;
+  overflow: visible;
+}
+
+iframe {
+  width: 100%;
+  height: 50vw;
+  border: none;
+}
+
+.page-content {
+  padding-top: 44px;
+}
+
+.preloader *, .link * {
+  max-width: none !important;
+}
+
+blockquote {
+  padding: 10px 10px 10px 40px;
+  margin: 20px 0;
+  line-height: 1.6em;
+  font-size: 15px;
+  color: #8f979a;
+  font-style: italic;
+  font-weight: 400;
+  background-color: #fafafa;
+  border-left: 3px solid #ff283c;
+}
+
+blockquote:before {
+  content: "\f347";
+  font-family: "Ionicons";
+  font-size: 23px;
+  position: absolute;
+  margin-left: -28px;
+  color: #d7dbdc;
+  font-weight: 400;
+}
+
+/************** 2. Navbar *************/
+
+.navbar .navbar-inner .open-panel i {
+  font-size: 25px;
+  padding-top: 2px;
+}
+
+.navbar .navbar-inner a {
+  width: 50px;
+}
+
+/************** 3. Panel *************/
+
+.panel-content {
+  padding-bottom: 20px;
+}
+
+.panel-profile {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  background-color: #2196f3;
+}
+
+.panel-profile-avatar img {
+  height: 40px;
+  float: left;
+}
+
+.panel-profile-author {
+  float: left;
+  line-height: 20px;
+  margin-left: 20px;
+  margin: 10px 0 10px 15px;
+}
+
+.panel-profile-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #FFF;
+}
+
+.panel-profile-description {
+  font-size: 14px;
+  color: #FFF;
+  margin-top: 3px;
+}
+
+.panel-profile-description i {
+  color: #FFF !important;
+  font-size: 16px;
+  margin-right: 4px;
+  margin-top: -1px;
+}
+
+.panel-line {
+  height: 1px;
+  border-bottom: 1px solid #eaeaea;
+  margin: 20px 0;
+}
+
+.panel-menu {
+  margin: 0;
+}
+
+.panel-menu a {
+  height: 55px;
+  line-height: 50px;
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.panel-menu i {
+  font-size: 18px;
+  width: 30px;
+  margin-top: -2px;
+}
+
+.panel-menu .ion-android-arrow-dropright {
+  width: 20px;
+}
+
+.panel-menu .item-title {
+  padding-left: 10px;
+  width: 100%;
+}
+
+.panel-menu li .accordion-item-content .content-block {
+  padding: 0;
+}
+
+.panel-menu li .accordion-item-content .item-content {
+  padding-left: 30px;
+}
+
+.panel-menu .badge {
+  background-color: #ff1a1a;
+  font-size: 11px;
+  height: 18px;
+  width: 18px;
+  line-height: 18px;
+  margin-bottom: 2px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.panel-social-networks {
+  text-align: center;
+  font-size: 22px;
+}
+
+.panel-social-networks a {
+  background-color: #2196f3;
+  color: #fff;
+  width: 35px;
+  display: inline-block;
+  margin: 0 3px;
+  height: 35px;
+  line-height: 36px;
+  border-radius: 30px;
+}
+
+.panel-social-networks a:active {
+  background-color: #70bcfa;
+}
+
+.panel-social-networks i {
+  font-size: 18px;
+}
+
+.panel-content .list-block ul::before, .panel-content .list-block ul::after, .panel-content .list-block ul li .item-inner::after {
+  height: 0 !important;
+}
+
+/************** 4. Home *************/
+
+.post-list {
+  list-style: none;
+}
+
+.post-list .post {
+  max-width: 100%;
+  margin: 0;
+  padding: 15px 15px 15px 15px;
+  clear: both;
+  height: 120px;
+  border-top: 1px solid #eaeaea;
+}
+
+.post-list li:nth-child(1) .post {
+  border-top: none;
+}
+
+.post-list .post-image {
+  width: 130px;
+  float: right;
+  height: 90px;
+  overflow: hidden;
+}
+
+.post-list .post-image img {
+  min-height: 90px;
+  width: auto;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.post-list .post-details {
+  width: calc(100% - 140px);
+  float: left;
+}
+
+.post-list .post-title-content {
+  font-size: 16px;
+  margin: 6px 0;
+  color: #313131;
+  font-weight: 400;
+  /* Overflow */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-list .post-category, .post-single .post-category {
+  color: #ff283c;
+  font-size: 11px;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+
+.post-list .post-publication {
+  color: #b7bdc4;
+  font-size: 12px;
+}
+
+.header-1 li:first-child .post-image, .header-all li .post-image {
+  width: 100%;
+  height: auto;
+}
+
+.header-1 li:first-child .post-image img, .header-all li .post-image img {
+  width: 100%;
+  height: 210px;
+}
+
+.header-1 li:first-child .post-details, .header-all li .post-details {
+  width: 100%;
+  padding: 0;
+  float: left;
+  padding-bottom: 13px;
+}
+
+.header-1 li:first-child .post-publication, .header-1 li:first-child .post-category, .header-all li .post-publication, .header-all li .post-category {
+  display: inline-block;
+}
+
+.header-1 li:first-child .post-category, .header-all li .post-category {
+  margin-right: 10px;
+  margin-top: 8px;
+}
+
+.header-all.cards li .post {
+  padding: 0;
+  margin: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+  position: relative;
+  height: auto;
+  border-radius: 3px;
+  border-radius: 3px;
+  overflow: hidden;
+  border-top: none;
+}
+
+.header-all.cards li .post .post-image {
+  margin-bottom: -7px;
+  float: none;
+}
+
+.header-all.cards li .post .post-details {
+  float: none;
+  padding: 10px 17px 12px;
+  background-color: #fff;
+}
+
+.grey-background {
+  background-color: #ececec;
+}
+
+
+/* For devices < iPhone 6 */
+@media only screen and (max-device-width : 374px) {
+  .post-list .post-image {
+    width: 120px;
+  }
+  .post-list .post-details {
+    width: calc(100% - 120px);
+  }
+
+  .header-1 li:first-child .post-image img {
+    height: 190px;
+  }
+}
+
+/* iPad and > */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1366px) {
+
+  .header-1 li:first-child .post-image img {
+    height: 400px;
+  }
+
+  .post-list li {
+    width: calc(50% - 2px);
+    display: inline-block;
+  }
+
+  .header-1 li:first-of-type {
+    display: block;
+    width: 100%;
+  }
+
+  .post-list li:nth-child(2) .post {
+    border-top: none;
+  }
+
+  .header-1 li:nth-child(2) .post {
+    border-top: 1px solid #eaeaea;
+  }
+
+  .header-all {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .header-all li .post-details {
+    padding-bottom: 7px;
+  }
+
+  .header-all.cards li .post .post-title-content {
+    -webkit-line-clamp: 1;
+  }
+  .header-all.cards li:nth-of-type(2n+1) .post{
+    margin: 10px 0px 0px 10px;
+  }
+  .header-all.cards li:nth-of-type(2n+2) .post{
+    margin: 10px 10px 0px 5px;
+  }
+}
+
+/************** 5. Post Single *************/
+
+.post-single .content-block {
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+.post-single .image-header {
+  position: relative;
+}
+.post-single .image-header img {
+  width: 100%;
+}
+
+.post-single .header {
+  text-align: center;
+  margin: 20px 0 18px;
+}
+
+.post-single h1 {
+  font-size: 25px;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.single-post-card {
+  margin: 10px;
+  background-color: #fff;
+}
+
+.post-single .post-date {
+  display: inline-block;
+  color: #b7bdc4;
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+.post-single .post-category {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 11px;
+}
+
+.post-share .button, .profile-social .button {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.post-share .button i, .profile-social .button i {
+  color: #FFF;
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.button.button-fill.facebook {
+  background-color: #3b5998;
+}
+.button.button-fill.twitter {
+  background-color: #55acee;
+}
+.button.button-fill.googleplus {
+  background-color: #dd4b39;
+}
+
+.speed-dial {
+  position: absolute;
+  right: 20px;
+  bottom: -20px;
+}
+
+.speed-dial .floating-button i {
+  font-size: 20px;
+}
+
+/* For devices < iPhone 6 */
+@media only screen and (max-device-width : 375px) {
+
+  .share-button {
+    display: block;
+    width: 100%;
+    padding: 5px 10px 5px 10px;
+  }
+
+  .share-button:first-of-type {
+    margin-top: 25px;
+  }
+}
+
+.post-comments {
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+}
+
+.comment-title {
+  text-align: center;
+  padding: 10px 0;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 14px;
+  background-color: #2196f3;
+  color: #fff;
+}
+
+.comment-list li {
+  display: block;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.comment-avatar {
+  width: 50px;
+  border-radius: 50px;
+  float: left;
+}
+
+.comment-details {
+  margin-left: 65px;
+}
+
+.comment-author {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.comment-date {
+  font-size: 12px;
+  color: #b7bdc4;
+  float: right;
+}
+
+.comment-content {
+  display: block;
+  line-height: 1.7em;
+  margin-top: 4px;
+  font-size: 15px;
+  color: #5d6061;
+}
+
+.comment-form ul::before, .contact ul::before {
+  display: none;
+}
+
+.comment-form .button, .contact .button {
+  background-color: #2196f3;
+  width: 100px;
+  font-weight: 500;
+  margin: 30px 0 20px 71px;
+}
+
+.comment-form .align-top i, .contact .align-top i {
+	position: absolute;
+	top: 20px;
+}
+
+.comment-form .list-block, .contact .list-block {
+  margin: 0;
+  margin-bottom: 20px;
+  padding-right 4px;
+}
+
+.form-block {
+  background-color: #fff;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  border: 1px solid #e3e7ea;
+  color: #c6cbd1 !important;
+}
+
+.comment-form i, .contact form i {
+  width: 30px;
+  font-size: 22px;
+  color: #9fa6ad;
+  padding: 0 5px 0 10px;
+  float: left;
+  margin-top: 8px;
+}
+
+/************** 6. Categories *************/
+
+.categories.list-block .item-title {
+  font-weight: 500;
+}
+
+.categories.list-block .item-subtitle {
+  color: #b7bdc4;
+}
+
+/************** 7. Profile *************/
+
+.profile .item-media {
+  min-width: 25px;
+}
+
+.profile .item-media i {
+  font-size: 23px;
+}
+
+.profile.list-block .item-subtitle {
+  color: #b7bdc4;
+}
+
+.profile-social {
+  padding: 0 16px;
+}
+
+.profile .profile-description {
+  padding: 0 16px;
+}
+
+.profile .profile-image {
+  position: relative;
+}
+
+.profile .profile-image img {
+  width: 100%;
+}
+
+.profile .floating-button {
+  position: absolute;
+  right: 20px;
+  bottom: -20px;
+}
+
+.profile .floating-button i {
+  font-size: 22px;
+}
+
+/************** 8. Contact *************/
+
+.contact .contact-logo {
+  width: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
+.contact .content-block {
+  margin-top: 30px;
+  padding: 0 25px;
+}
+
+.contact .contact-header {
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.contact .contact-img {
+  width: 20%;
+  margin: 0 auto;
+  margin-top: 40px;
+  display: block;
+}
+
+/************** 9. Shortcodes *************/
+
+.full-width {
+  width: calc(100% + 40px);
+  max-width: none;
+  margin-left: -20px;
+}
+
+.card-header-pic .card-header {
+  height: 50vw;
+  background-size: cover;
+  background-position: center;
+  align-items: flex-end;
+}
+
+.card-footer a.link, .card-header a.link {
+  font-weight: 500;
+}

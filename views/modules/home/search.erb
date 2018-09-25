@@ -1,0 +1,41 @@
+<div class="uk-section uk-section-small uk-padding-remove-bottom section-content">
+	<div class="uk-container uk-position-relative">
+		<div uk-grid>
+			<div class="uk-width-3-4@m">
+				<div class="">
+					<h3 class="uk-margin-medium-bottom">Comments</h3>
+					<ul class="uk-comment-list">
+						<% @search.each do |s| %>
+						<li>
+							<article class="uk-comment uk-visible-toggle">
+								<header class="uk-comment-header uk-position-relative">
+									<div class="uk-grid-medium uk-flex-middle" uk-grid>
+										<div class="uk-width-auto">
+											<img class="uk-comment-avatar uk-border-circle" src="<%= s["square"]   %>" width="70" height="70" alt="">
+										</div>
+										<div class="uk-width-expand">
+											<h4 class="uk-margin-remove"><a class="uk-link-reset" href="/profile?token=<%=s['view_token']%>"><%= s["nombre"]   %> <%= s["apellidos"]  %></a></h4>
+										</div>
+									</div>
+									<div class="uk-position-top-right uk-position-small"><a class="button" href="/profile?token=<%=s['view_token']%>">Perfíl</a></div>
+								</header>
+								<div class="uk-comment-body">
+									<p><%= s["acerca_de_mi"].truncate(200, separator: '...') if s["acerca_de_mi"] != nil  %></p>
+									<p>
+										<% s["especialidades"].each do |es| %>
+										 <span class="uk-label"> <%= es["nombre"] %> </span>
+										<%end%>
+
+									</p>
+								</div>
+							</article>
+						</li>
+						<%end%>
+					</ul>
+				</div>
+			</article>
+		</div>
+	    <%= erb :'/modules/renders/banners' %>
+	</div>
+</div>
+</div>

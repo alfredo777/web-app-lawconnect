@@ -1,0 +1,41 @@
+<div class="uk-section uk-section-small uk-padding-remove-bottom section-content">
+	<div class="uk-container uk-position-relative">
+		<div uk-grid>
+			<div class="uk-width-3-4@m">
+				<div class="">
+					<div class="row">
+						<div class="three columns">
+							<img class="uk-comment-avatar uk-border-circle" src="<%=@abogado['square']%>" width="200" height="200" alt="">
+						</div>
+						<div class="seven columns">
+							<h2><%= @abogado['nombre']%> <%= @abogado['apellidos']%></h2>
+							<% @abogado["especialidades"].each do |es| %>
+							<span class="uk-label"> <%= es["nombre"] %> </span>
+							<%end%>
+						</div>
+					</div>
+					<br/><br/>
+					<div class="row" style="text-align: justify;">
+						<div class="four columns">
+							<a class="button">Contactar</a>
+						</div>
+					    <div class="eight columns">
+
+						Evaluaciones <%= @abogado['evaluacion']%>/<%= @abogado['evaluacion_por_litigio']%>
+						</div>
+					</div>
+					<div class="row" style="text-align: justify;">
+						<h3>Acerca de mí</h3>
+						<%= @abogado['acerca_de_mi'] %>
+					</div>
+					<div class="row" style="text-align: justify;">
+						<h3>Experiencia profecional</h3>
+						<%= @abogado['curriculum'] %>
+					</div>
+				</div>
+			</article>
+		</div>
+		<%= erb :'/modules/renders/banners' %>
+	</div>
+</div>
+</div>
