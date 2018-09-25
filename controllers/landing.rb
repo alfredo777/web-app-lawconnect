@@ -42,6 +42,8 @@ get "/profile" do
 end
 
 get '/admin' do
+  erb :"modules/home/admin", :layout => :"layouts/admin"
+
 end
 
 def current_route(path)
