@@ -195,7 +195,6 @@
       .then(function (response) {
         if(response.ok) {
             response.blob().then(function(miBlob) {
-               alert(response.notice);
                window.location.reload();
             });
           } else {
@@ -203,7 +202,6 @@
           }
       })
       .catch(function(error) {
-          alert('Hubo un problema con la petición Fetch:' + error.message);
           window.location.reload();
       });
   }
