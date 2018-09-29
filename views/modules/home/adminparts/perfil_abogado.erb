@@ -1,0 +1,211 @@
+<div class="clearfix"></div>
+	
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4">
+           <div class="profile-card-3">
+            <div class="card">
+			 <div class="user-fullimage">
+			   <img src="<%= @abogado['avatar']%>" alt="user avatar" class="card-img-top">
+			    <div class="details">
+			      <h5 class="mb-1 text-white ml-3"><%= @abogado['nombre']%></h5>
+				  <h6 class="text-white ml-3"><%= @abogado['apellidos']%></h6>
+				 </div>
+			  </div>
+            <div class="card-body text-center">
+                 Email: <%= @abogado['email']%><hr>
+				 Celular: <%= @abogado['celular']%><hr>
+                 Telefono: <%= @abogado['telefono']%><hr>
+                 Ext: <%= @abogado['ext']%>
+                </div>
+             </div>
+			</div>
+        </div>
+        <div class="col-lg-8">
+           <div class="card">
+            <div class="card-body">
+            <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified">
+                <li class="nav-item">
+                    <a href="javascript:void();" data-target="#profile" data-toggle="pill" class="nav-link active"><i class="icon-user"></i> <span class="hidden-xs">Perfil</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">Citas</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Editar</span></a>
+                </li>
+            </ul>
+            <div class="tab-content p-3">
+                <div class="tab-pane active" id="profile">
+                    <h5 class="mb-3">Perfil del usuario</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Acerca de mi:</h6>
+                            <p style="text-align: justify;">
+                              <%= @abogado['acerca_de_mi']%>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Especialidades </h6>
+                            <% @abogado['especialidades'].each do |especialidad| %>
+                            <a href="javascript:void();" class="badge badge-dark badge-pill"><%=especialidad['nombre']%></a>
+                            <%end%>
+                            <hr>
+                            <span class="badge badge-primary"></i><%= @abogado['casos'].length %> Casos</span>
+                            <span class="badge badge-success"></i> <%= @abogado['citas'].length %> Citas </span>
+                        </div>
+                        <div class="col-md-12">
+                            <h5 class="mt-2 mb-3">Currículumn:</h5>
+
+                            <p style="text-align: justify;">
+                              <%= @abogado['curriculum']%>
+                            </p>
+                            
+                        </div>
+                    </div>
+                    <!--/row-->
+                </div>
+                <div class="tab-pane" id="messages">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+				   <button type="button" class="close" data-dismiss="alert">&times;</button>
+				    <div class="alert-icon">
+					 <i class="icon-info"></i>
+				    </div>
+				    <div class="alert-message">
+				      <span><strong>Información:</strong> Este apartado solo muestra las 20 últimas citas solicitadas para el abogado. </span>
+				    </div>
+                  </div>
+                    <table class="table table-hover table-striped">
+                        <tbody>
+                            <% @abogado['citas'].each do |cita| %>                                    
+                            <tr>
+                                <td><a href='/admin/citas/<%=cita['id']%>' target="_blank"><%= cita['token'] %></a></td>
+                                <td>
+                                    <% d = DateTime.parse(cita['fecha'])%>
+                                    <%= d.strftime("%m/%d/%Y a las  %I:%M%p") %>
+                                    
+                                </td>
+                                <td><%= cita['asunto'] %></td>
+                                <td><%= cita['programar_llamada'] %></td>
+                            </tr>
+                            <%end%>
+                        </tbody> 
+                    </table>
+                </div>
+                <div class="tab-pane" id="edit">
+                    <form id="edituser" name="edituser" action="POST" enctype="multipart/form-data">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Nombre</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="nombre" type="text" value="<%= @abogado['nombre'] %>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Apellido</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="apellidos" type="text" value="<%= @abogado['apellidos'] %>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="email" type="email" value="<%= @abogado['email'] %>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Avatar</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="avatar" type="file">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Celular</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="celular" type="text" value="<%= @abogado['celular'] %>" placeholder="Celular">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Teléfono</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="telefono" type="text" value="<%= @abogado['telefono'] %>" placeholder="Teléfono">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Extención</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="ext" type="text" value="<%= @abogado['ext'] %>" placeholder="Extención">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Currículum</label>
+                            <div class="col-lg-9">
+                                <textarea class="form-control" name="curriculum" placeholder="Currículum"><%= @abogado['curriculum'] %></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Acerca de mí</label>
+                            <div class="col-lg-9">
+                                <textarea class="form-control" name="acerca_de_mi" placeholder="Acerca de mí"><%= @abogado['acerca_de_mi']%></textarea>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Nuevo Password (solo en caso de querer cambiarlo)</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="password" type="password" >
+                            </div>
+                        </div>
+                        <hr>
+                       
+                    </form>
+
+                     <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-9">
+                                <input type="button" class="btn btn-primary" value="Guardar Cambios" onclick="sendFormUser();">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      </div>
+        
+    </div>
+
+    </div>
+    <!-- End container-fluid-->
+   </div>
+
+<script type="text/javascript">
+  function sendFormUser(){
+    var element = document.getElementById('edituser');
+    console.log(element);
+    var formData =  new FormData(element);
+    console.log(formData);
+
+    var url = "https://access-point-law-connect.herokuapp.com/api/law/update";
+
+      fetch(url, {
+      method: 'POST',
+      body: formData
+      })
+      .then(function (response) {
+        if(response.ok) {
+            response.blob().then(function(miBlob) {
+               alert(response.notice);
+               window.location.reload();
+            });
+          } else {
+            console.log('Error al enviar');
+          }
+      })
+      .catch(function(error) {
+          alert('Hubo un problema con la petición Fetch:' + error.message);
+          window.location.reload();
+      });
+  }
+
+</script>

@@ -1,0 +1,121 @@
+<div class="row">
+  <div class="col-lg-2">
+  </div>
+  <div class="col-lg-9">
+    <div class="card" style="margin-left: 150px; margin-top: 80px;">
+      <div class="card-header">
+        Caso #<%= @caso['numero_expediente'] %>
+      </div>
+      <div class="card-body">
+          <table class="table" id="default-datatable" >
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Valor </th>
+                  </tr>
+                </thead>
+                <tbody>
+                   <tr>
+                     <th>Número de expediente</th>
+                     <th><%= @caso['numero_expediente'] %></th>
+                   </tr>
+                   <tr>
+                     <th>Título del caso</th>
+                     <th><%= @caso['titulo'] %></th>
+                   </tr>
+                   <tr>
+                     <th>Resumen del caso</th>
+                     <th><%= @caso['resumen_del_caso'] %></th>
+                   </tr>
+                   <tr>
+                     <th>Clientes</th>
+                     <th>
+                         <% @caso['clientes'].each do |cliente| %>
+                            <%= cliente['nombre'] %> <%= cliente['apellidos'] %>
+                         <%end%>
+                     </th>
+                   </tr>
+                   <tr>
+                     <th>Abogados</th>
+                     <th>
+                         <% @caso['abogados'].each do |abogado| %>
+                            <%= abogado['nombre'] %> <%= abogado['apellidos'] %>
+                         <%end%>
+                     </th>
+                   </tr>
+
+                   <tr>
+                     <th>Equipo</th>
+                     <th>
+                         <% @caso['equipos'].each do |equipo| %>
+                            <ul>
+                            <% equipo['equipo'].each do |abogado| %>
+                              <li><%= abogado['nombre'] %> <%= abogado['apellidos'] %></li>
+                            <%end%>
+                            </ul>
+                         <%end%>
+                     </th>
+                   </tr>
+
+                </tbody>
+          </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-left: 150px; margin-top: 80px;">
+      <div class="card-header">
+        Actividades completadas
+      </div>
+      <div class="card-body">
+          <table class="table" id="default-datatable" >
+                <thead>
+                  <tr>
+                    <th>Actividad</th>
+                    <th>Descripcción</th>
+                    <th>Temporalidad </th>
+                    <th>Fecha de creación </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @caso['acomplishment'].each do |actividad| %>
+                  <tr>
+                    <th><%= actividad['title'] %></th>
+                    <th><%= actividad['description'] %></th>
+                    <th>Desde <%= actividad['init_date'] %> hasta <%= actividad['finish_date'] %></th>
+                    <th><%= actividad['realizado'] %></th>
+                  </tr>
+                  <%end%>
+                </tbody>
+          </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-left: 150px; margin-top: 80px;">
+      <div class="card-header">
+        Actividades por completar
+      </div>
+      <div class="card-body">
+          <table class="table" id="default-datatable" >
+                <thead>
+                  <tr>
+                    <th>Actividad</th>
+                    <th>Descripcción</th>
+                    <th>Temporalidad </th>
+                    <th>Fecha de creación </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @caso['todos'].each do |actividad| %>
+                  <tr>
+                    <th><%= actividad['title'] %></th>
+                    <th><%= actividad['description'] %></th>
+                    <th>Desde <%= actividad['init_date'] %> hasta <%= actividad['finish_date'] %></th>
+                    <th><%= actividad['realizado'] %></th>
+                  </tr>
+                  <%end%>
+                </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+  

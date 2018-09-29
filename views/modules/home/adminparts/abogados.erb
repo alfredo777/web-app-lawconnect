@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-lg-2">
+  </div>
+  <div class="col-lg-9">
+    <div class="card" style="margin-left: 150px; margin-top: 80px;">
+      <div class="card-header">
+        Abogados
+        <div class="card-action">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table table-bordered" id="default-datatable">
+            <thead>
+              <tr>
+                <th>Avatar</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Email</th>
+                <th>Celular</th>
+                <th>Teléfono</th>
+                <th>Extención</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @abogados.each do |abogado| %>
+              <tr>
+                <td><img src="<%= abogado['square']%>"  width="70px"/></td>
+                <td><a href="/admin/abogado?token=<%= abogado['view_token'] %>"><%= abogado['nombre']%></a></td>
+                <td><%= abogado['apellidos']%></td>
+                <td><%= abogado['email']%></td>
+                <td><%= abogado['celular']%></td>
+                <td><%= abogado['telefono']%></td>
+                <td><%= abogado['ext']%></td>
+                
+              </tr>
+              <%end%>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#default-datatable').DataTable();
+  });
+  
+</script>

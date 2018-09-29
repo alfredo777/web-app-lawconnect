@@ -1,0 +1,46 @@
+<div class="clearfix"></div>
+<div class="content-wrapper">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-header">
+						Tickets
+						<div class="card-action">
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table" id="default-datatable" >
+								<thead>
+									<tr>
+										<th>Email</th>
+										<th>Desceipcción </th>
+										<th>Opcciones</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% @tickets.each do |ticket| %>
+									<tr>
+										<td><%= ticket['email']%></td>
+										<td><%= ticket['description'] %></td>
+										<td><a>Eliminar</a></td>
+									</tr>
+									<%end%>
+									
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div><!--End Row-->
+		</div>
+	</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#default-datatable').DataTable();
+	});
+	
+</script>
