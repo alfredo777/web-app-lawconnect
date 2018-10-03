@@ -27,7 +27,7 @@
             <tbody>
               <% @clientes.each do |cliente| %>
               <tr>
-                <td><%= cliente['nombre']%></td>
+                <td><a href="/admin/cliente?email=<%= cliente['email']%>"><%= cliente['nombre']%></a></td>
                 <td><%= cliente['apellidos']%></td>
                 <td><%= cliente['email']%></td>
                 <td><%= cliente['celular']%></td>

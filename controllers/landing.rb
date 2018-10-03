@@ -83,6 +83,17 @@ get '/admin/clientes' do
   erb :"modules/home/adminparts/clientes", :layout => :"layouts/admin"
 end
 
+get '/admin/cliente' do 
+  uri = "#{CONECTIONNODE}/api/cliente/show?email=#{params[:email]}"
+  response = HTTParty.get(uri)
+  @data = response  
+  @cliente = JSON.parse(@data['cliente'])
+
+
+
+  erb :"modules/home/adminparts/perfil_cliente", :layout => :"layouts/admin"
+end
+
 get '/admin/abogados' do 
   uri = "#{CONECTIONNODE}/admin/abogados"
   response = HTTParty.get(uri)
@@ -100,6 +111,24 @@ get '/admin/abogado' do
   @abogado = JSON.parse(@data['abogado'])
 
   erb :"modules/home/adminparts/perfil_abogado", :layout => :"layouts/admin"
+end
+
+get '/admin/abogado/register' do 
+  @categorias = [
+    {:id => 1, :title => "Derecho Laboral", :search => "derecho laboral"},
+    {:id => 2, :title => "Derecho Administrativo", :search => "derecho administrativo"},
+    {:id => 3, :title => "Derechos de Autor", :search => "derechos de autor"},
+    {:id => 4, :title => "Derecho de lo Familiar", :search => "derecho familiar"},
+    {:id => 5, :title => "Derecho Fiscal", :search => "derecho fiscal"},
+    {:id => 6, :title => "Derecho Penal", :search => "derecho penal"},
+    {:id => 7, :title => "Derecho Civil", :search => "derecho civil"},
+    {:id => 8, :title => "Derecho Mercantil", :search => "derecho mercantil"}
+  ]
+
+  puts "Inicializando categorias"
+  
+  puts @categorias
+  erb :"modules/home/adminparts/registro_abogado", :layout => :"layouts/admin"
 end
 
 

@@ -1,0 +1,134 @@
+<div class="clearfix"></div>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4">
+           <div class="profile-card-3">
+            <div class="card">
+			 <div class="user-fullimage">
+			   <img src="<%= @cliente['avatar']%>" alt="user avatar" class="card-img-top">
+			    <div class="details">
+			      <h5 class="mb-1 text-white ml-3"><%= @cliente['nombre']%></h5>
+				  <h6 class="text-white ml-3"><%= @cliente['apellidos']%></h6>
+				 </div>
+			  </div>
+            <div class="card-body text-center">
+                 Email: <%= @cliente['email']%><hr>
+				 Celular: <%= @cliente['celular']%><hr>
+                 Telefono: <%= @cliente['telefono']%><hr>
+                 Ext: <%= @cliente['ext']%>
+                </div>
+             </div>
+			</div>
+        </div>
+        <div class="col-lg-8">
+           <div class="card">
+            <div class="card-body">
+            <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified">
+                <li class="nav-item">
+                    <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Editar</span></a>
+                </li>
+            </ul>
+            <div class="tab-content p-3">
+                <div class="tab-pane active" id="edit">
+                    <form id="edituser" name="edituser" action="POST" enctype="multipart/form-data">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Nombre</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="nombre" type="text" value="<%= @cliente['nombre'] %>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Apellido</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="apellidos" type="text" value="<%= @cliente['apellidos'] %>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="email" type="email" value="<%= @cliente['email'] %>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Avatar</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="avatar" type="file">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Celular</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="celular" type="text" value="<%= @cliente['celular'] %>" placeholder="Celular">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Teléfono</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="telefono" type="text" value="<%= @cliente['telefono'] %>" placeholder="Teléfono">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Extención</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="ext" type="text" value="<%= @cliente['ext'] %>" placeholder="Extención">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Nuevo Password (solo en caso de querer cambiarlo)</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" name="password" type="password" >
+                            </div>
+                        </div>
+                        <hr>
+                       
+                    </form>
+
+                     <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-9">
+                                <input type="button" class="btn btn-primary" value="Guardar Cambios" onclick="sendFormUser();">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      </div>
+        
+    </div>
+
+    </div>
+    <!-- End container-fluid-->
+   </div>
+
+<script type="text/javascript">
+  function sendFormUser(){
+    var element = document.getElementById('edituser');
+    console.log(element);
+    var formData =  new FormData(element);
+    console.log(formData);
+
+    var url = "https://access-point-law-connect.herokuapp.com/api/cliente/edit";
+
+      fetch(url, {
+      method: 'POST',
+      body: formData
+      })
+      .then(function (response) {
+        if(response.ok) {
+            response.blob().then(function(miBlob) {
+               window.location.reload();
+            });
+          } else {
+            console.log('Error al enviar');
+          }
+      })
+      .catch(function(error) {
+          window.location.reload();
+      });
+  }
+
+</script>
