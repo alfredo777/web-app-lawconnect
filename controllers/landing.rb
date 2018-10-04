@@ -19,6 +19,16 @@ CONECTIONNODE = "https://access-point-law-connect.herokuapp.com"
 
 
 get "/" do
+  @categorias = [
+    {:id => 1, :title => "Derecho Laboral", :search => "derecho laboral"},
+    {:id => 2, :title => "Derecho Administrativo", :search => "derecho administrativo"},
+    {:id => 3, :title => "Derechos de Autor", :search => "derechos de autor"},
+    {:id => 4, :title => "Derecho de lo Familiar", :search => "derecho familiar"},
+    {:id => 5, :title => "Derecho Fiscal", :search => "derecho fiscal"},
+    {:id => 6, :title => "Derecho Penal", :search => "derecho penal"},
+    {:id => 7, :title => "Derecho Civil", :search => "derecho civil"},
+    {:id => 8, :title => "Derecho Mercantil", :search => "derecho mercantil"}
+  ]
   erb :"modules/home/index", :layout => :"layouts/application"
 end
 

@@ -3,36 +3,18 @@
         <div class="uk-container">
             <div uk-navbar>
                 <div class="uk-navbar-left">
-                    <a class="uk-navbar-item uk-logo uk-text-uppercase" href="index.html"><span class="uk-margin-small-right" uk-icon="icon: lifesaver"></span> Knowledge</a>
-                </div>
-                <div class="uk-navbar-right">
-                    <ul class="uk-navbar-nav uk-text-uppercase uk-visible@m uk-margin-medium-left">
-                        <li><a href="index.html">Home</a></li>
-                        <li>
-                            <a href="article.html">Article</a>
-                            <div class="uk-navbar-dropdown">
-                                <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li><a href="article.html">Scrollspy</a></li>
-                                    <li><a href="article-narrow.html">Narrow</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a href="faq.html">Faq</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="components.html">Components</a></li>
-                    </ul>
-                    <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas" uk-navbar-toggle-icon uk-toggle></a>
+                    <a class="uk-navbar-item uk-logo uk-text-uppercase" href="/"><img src="/assets/img/logo.png"></a>
                 </div>
             </div>
         </div>
     </nav>
     <div class="uk-container hero">
-        <h1 class="uk-heading-primary uk-text-center uk-margin-large-top uk-light">Create a Knowledge Base with Ease</h1>
-        <p class="uk-text-lead uk-text-center uk-light">Lead volutpat nibh ligula gravida. Magna auctor eget venenatis phasellus luctus sodales pulvinar</p>
+        <h1 class="uk-heading-primary uk-text-center uk-margin-large-top uk-light">Law Connect</h1>
+        <p class="uk-text-lead uk-text-center uk-light">El primer vinculador especializado de ayuda legal en Latinoamérica.</p>
         <div class="uk-flex uk-flex-center">
             <form class="uk-margin-medium-top uk-margin-xlarge-bottom uk-search uk-search-default" action="/search" type="GET">
                 <a href="" class="uk-search-icon-flip" uk-search-icon></a>
-                <input id="autocomplete" class="uk-search-input uk-form-large" type="search" autocomplete="off" name="search" placeholder="Enter search term here">
+                <input id="autocomplete" class="uk-search-input uk-form-large" type="search" autocomplete="off" name="search" placeholder="Ingresa el tema a buscar">
             </form>
         </div>
     </div>
@@ -40,51 +22,13 @@
 <div class="uk-section">
     <div class="uk-container">
         <div class="uk-child-width-1-3@s uk-grid-match uk-grid-medium uk-text-center" uk-grid>
+            <% @categorias.each do |categoria| %>
             <div>
-                <a href="category.html" class="box uk-border-rounded">
-                    <h3>Quick Setup</h3>
+                <a href="/search?search=<%=categoria[:title]%>" class="box uk-border-rounded">
+                    <h3><%=categoria[:title]%></h3>
                 </a>
             </div>
-            <div>
-                <a href="category.html" class="box uk-border-rounded">
-                    <h3>Administration Panel</h3>
-                </a>
-            </div>
-            <div>
-                <a href="category.html" class="box uk-border-rounded">
-                    <h3>Product Options</h3>
-                </a>
-            </div>
-            <div>
-                <a href="category.html" class="box uk-border-rounded">
-                    <h3>Video Tutorials</h3>
-                </a>
-            </div>
-            <div>
-                <a href="category.html" class="box uk-border-rounded">
-                    <h3>Customization</h3>
-                </a>
-            </div>
-            <div>
-                <a href="category.html" class="box uk-border-rounded">
-                    <h3>Shipping Methods</h3>
-                </a>
-            </div>
-            <div>
-                <a href="category.html" class="box uk-border-rounded">
-                    <h3>Product Feedback</h3>
-                </a>
-            </div>
-            <div>
-                <a href="category.html" class="box uk-border-rounded">
-                    <h3>Freaqently Asked Questions</h3>
-                </a>
-            </div>
-            <div>
-                <a href="category.html" class="box uk-border-rounded">
-                    <h3>Release Notes</h3>
-                </a>
-            </div>
+            <%end%>
         </div>
     </div>
 </div>
