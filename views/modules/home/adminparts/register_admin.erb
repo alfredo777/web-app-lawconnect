@@ -1,0 +1,66 @@
+<div class="clearfix"></div>
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="row">
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-8">
+          <br/><br/>
+          <form id="edituser" name="edituser" action="POST" enctype="multipart/form-data">
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Email</label>
+              <div class="col-lg-9">
+                <input class="form-control" name="email" type="email" placeholder="Email" >
+              </div>
+            </div>     
+            <hr>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Contraseña</label>
+              <div class="col-lg-9">
+                <input class="form-control" name="password" type="password" placeholder="Contraseña" >
+              </div>
+            </div>
+            <hr>
+            
+          </form>
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label form-control-label"></label>
+            <div class="col-lg-9">
+              <input type="button" class="btn btn-primary" value="Guardar Cambios" onclick="sendFormUser();">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function sendFormUser(){
+    var element = document.getElementById('edituser');
+    console.log(element);
+    var formData =  new FormData(element);
+    console.log(formData);
+
+    var url = "https://access-point-law-connect.herokuapp.com/admin/create_admin";
+
+      fetch(url, {
+      method: 'POST',
+      body: formData
+      })
+      .then(function (response) {
+        if(response.ok) {
+            response.blob().then(function(miBlob) {
+               window.location.reload();
+            });
+          } else {
+            console.log('Error al enviar');
+          }
+      })
+      .catch(function(error) {
+          window.location.reload();
+      });
+  }
+
+</script>
