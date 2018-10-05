@@ -244,6 +244,11 @@ get '/admin/secure/acces' do
   erb :"modules/home/adminparts/loggin", :layout => :"layouts/loggin"
 end
 
+get 'admin/secure/exit' do 
+  session[:admin] = false
+  redirect '/admin/loggin'
+end
+
 
 
 
