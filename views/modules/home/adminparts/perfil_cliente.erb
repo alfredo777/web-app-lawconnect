@@ -16,7 +16,9 @@
                  Email: <%= @cliente['email']%><hr>
 				 Celular: <%= @cliente['celular']%><hr>
                  Telefono: <%= @cliente['telefono']%><hr>
-                 Ext: <%= @cliente['ext']%>
+                 Ext: <%= @cliente['ext']%><hr>
+                 <a href="/admin/cliente/destroy?email=<%= @cliente['email']%>">Eliminar cliente</a>
+
                 </div>
              </div>
 			</div>

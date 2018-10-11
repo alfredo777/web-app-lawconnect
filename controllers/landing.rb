@@ -113,8 +113,6 @@ get '/admin/cliente' do
   @data = response  
   @cliente = JSON.parse(@data['cliente'])
 
-
-
   erb :"modules/home/adminparts/perfil_cliente", :layout => :"layouts/admin"
 end
 
@@ -122,6 +120,15 @@ end
 get '/admin/cliente/register' do 
   loggin_filter
   erb :"modules/home/adminparts/registro_cliente", :layout => :"layouts/admin"
+end
+
+get '/admin/cliente/destroy' do 
+  loggin_filter
+  uri = "#{CONECTIONNODE}/admin/destroy_cliente?email=#{params[:email]}"
+  response = HTTParty.get(uri)
+  @data = response  
+  
+  redirect '/admin/clientes' 
 end
 
 get '/admin/abogados' do 
@@ -162,6 +169,15 @@ get '/admin/abogado/register' do
   
   puts @categorias
   erb :"modules/home/adminparts/registro_abogado", :layout => :"layouts/admin"
+end
+
+get '/admin/abogado/destroy' do 
+  loggin_filter
+  uri = "#{CONECTIONNODE}/admin/destroy_abogado?token=#{params[:token]}"
+  response = HTTParty.get(uri)
+  @data = response  
+  
+  redirect '/admin/abogados' 
 end
 
 
