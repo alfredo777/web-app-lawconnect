@@ -59,6 +59,22 @@ get "/profile" do
   erb :"modules/home/profile", :layout => :"layouts/layout_single"
 end
 
+get '/contactar' do 
+  current_route(request.path_info)
+  erb :"modules/home/contact", :layout => :"layouts/layout_single"
+end
+
+get '/generarcita' do
+  current_route(request.path_info)
+  params_cita = "email=#{params[:email]}&nombre=#{params[:nombre]}&apellidos=#{params[:apellidos]}&celular=#{params[:celular]}&telefono=#{params[:telefono]}&ext=#{params[:ext]}&direccion=#{params[:direccion]}&fecha=#{params[:fecha]}&hora=#{params[:hora]}&asunto=#{params[:asunto]}&usuario_contactado=#{params[:abogado]}"
+  uri = "#{CONECTIONNODE}/api/global/single_contact?#{params_cita}"
+  response = HTTParty.get(uri)
+  puts response
+  @data = response
+
+  erb :"modules/home/contactresponse", :layout => :"layouts/layout_single"
+end
+
 get '/admin' do
 
   loggin_filter

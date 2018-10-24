@@ -1,0 +1,18 @@
+<div class="uk-section uk-section-small uk-padding-remove-bottom section-content">
+	<div class="uk-container uk-position-relative">
+		<div uk-grid>
+			<div class="uk-width-3-4@m">
+				<div class="" style="text-align: justify;">
+					<h2>¡Gracias por contactar a Law Connect!</h2>
+					<% @cita =  JSON.parse(@data['cita']) %>
+					<p> Este es tu folio para cita <b><%= @cita["token"] %></b> que ha sido generado para la cita que solicitaste para <b><%= @cita["fecha"] %></b>, te recordamos que la cita sera confirmada via telefónica desde nuestras instalaciones, para que esperes su confirmación. </p>
+					<p> Al generar la cita hemos generado una clave de acceso a nuestra aplicación por la cual puedes dar seguimiento a la cita ingresa a la App desde tu celular con el correo que has asignado y la siguiente contraseña <b><%= @data['password'] %></b> de esa forma podremos contactarnos contigo de una manera mas rapida y eficiente. </p>
+					<p>Para mayor información sobre nuestras Apps da click en el logo del sistema operativo que utilizas ya se Android o IOs </p>
+
+				</div>
+			</article>
+		</div>
+		<%= erb :'/modules/renders/banners' %>
+	</div>
+</div>
+</div>

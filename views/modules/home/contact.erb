@@ -1,0 +1,59 @@
+<div class="uk-section uk-section-small uk-padding-remove-bottom section-content">
+	<div class="uk-container uk-position-relative">
+		<div uk-grid>
+			<div class="uk-width-3-4@m">
+				<div class="">
+					<div class="row">
+						<div class="three columns">
+							<img class="uk-comment-avatar uk-border-circle" src="<%= params[:img]%>" width="200" height="200" alt="">
+						</div>
+						<div class="seven columns">
+							<h1>Contacto</h1>
+							<h2><%= params[:nombre]%> <%= params[:apellidos]%></h2>
+						</div>
+					</div>
+					<br/><br/>
+					<div class="row" style="text-align: justify;">
+						<form action="/generarcita" method="GET">
+							<div class="row">
+								<div class="ten columns">
+									<label>Email</label>
+									<input type="text" name="email" placeholder="Email" class="u-full-width" ><br/>
+									<label>Nombre</label>
+									<input type="text" name="nombre" placeholder="Nombre" class="u-full-width" ><br/>
+									<label>Apellidos</label>
+									<input type="text" name="apellidos" placeholder="Apellidos" class="u-full-width"><br/>
+									<label>Celular</label>
+									<input type="text" name="celular" placeholder="Celular" class="u-full-width"><br/>
+									<label>Teléfono</label>
+									<input type="text" name="telefono" placeholder="Teléfono de oficina" class="u-full-width"><br/>
+									<label>Exteción</label>
+									<input type="text" name="ext" placeholder="Exteción" class="u-full-width"><br/>
+									<label>Dirección</label>
+									<input type="text" name="direccion" placeholder="Dirección" class="u-full-width"><br/>
+									<input type="text" name="abogado" value="<%= params[:email]%>" placeholder="Abogado" style="display:none;"><br/>
+									<div class="row">
+										<label>Selecciona una fecha y una hora</label>
+										<div class="eight columns">
+											<input type="date" name="fecha" class="u-full-width">
+										</div>
+										<div class="two columns">
+											<input type="time" name="hora"  min="9:00" max="18:00" class="u-full-width">
+										</div>
+									</div>
+									<br/>
+									<label>Tema a tratar en la cita</label>
+									<textarea name="asunto" placeholder="Tema a tratar" class="u-full-width">
+									</textarea><br/>
+									<button>Contactar</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</article>
+		</div>
+		<%= erb :'/modules/renders/banners' %>
+	</div>
+</div>
+</div>
