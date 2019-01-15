@@ -285,7 +285,43 @@ get '/admin/secure/exit' do
   redirect '/admin/loggin'
 end
 
-get '/mailer' do 
+post '/mailer' do
+  require 'sendgrid-ruby'
+  #include SendGrid
+
+  API_KEY = "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"
+  KEY_ID  = "SoEuYBHBSmCLsMZUGf9nZw"
+  
+  subjet = "#{params[:name]} ha intentado contactarte ! (#{params[:phone]})"
+
+  data = {
+    personalizations: [
+      {
+        to: [
+          {
+            email: "leon@soccerid.co"
+          }
+        ],
+        subject: subjet
+      }
+    ],
+    from: {
+      email: "#{params[:email]}"
+    },
+     content: [
+      {
+        type: "text/plain",
+        value: "#{params[:message]}"
+      }
+    ]
+  }
+  sg = SendGrid::API.new(api_key: API_KEY)
+  response = sg.client.mail._("send").post(request_body: data)
+  puts response.status_code
+  puts response.body
+  puts response.headers
+
+  redirect '/'
 end
 
 

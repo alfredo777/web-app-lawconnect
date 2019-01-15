@@ -210,7 +210,7 @@
             
             <!--Contact form-->
             <div id="form-messages"></div>
-            <form class="contact-form text-center" method="get" action="/mailer" role="form" id="ajax-contact">
+            <form class="contact-form text-center" id="akaFORM">
               <div class="form-group">
                 <input class="form-control" type="text" name="name" id="name" placeholder="Nombre" required>
               </div>
@@ -223,8 +223,9 @@
               <div class="form-group">
                 <textarea name="message" class="form-control" id="message"  rows="4" placeholder="Mensaje" required></textarea>
               </div>
-              <button type="submit" class="btn btn-default button">Enviar</button>
             </form>
+             <button type="submit" class="btn btn-default button" onclick="sendCOntact();">Enviar</button>
+
             <!--Contact form end-->
             
           </div>
@@ -260,3 +261,32 @@
     <script src="proximamente/js/main.js"></script>
   </body>
 </html>
+
+<script type="text/javascript">
+  function sendCOntact(){
+    var element = document.getElementById('akaFORM');
+    console.log(element);
+    var formData =  new FormData(element);
+    console.log(formData);
+
+      fetch("http://127.0.0.1:9393/mailer", {
+      method: 'POST',
+      body: formData
+      })
+      .then(function (response) {
+        if(response.ok) {
+            response.blob().then(function(miBlob) {
+                alert('Formato enviado correctamente pronto lo contactarémos');
+                document.getElementById("akaFORM").reset();
+            });
+          } else {
+            console.log('Error al enviar');
+          }
+      })
+      .catch(function(error) {
+        alert('Formato enviado correctamente pronto lo contactarémos');
+        document.getElementById("akaFORM").reset();
+      });
+  }
+
+</script>
