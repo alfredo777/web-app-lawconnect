@@ -285,6 +285,9 @@ get '/admin/secure/exit' do
   redirect '/admin/loggin'
 end
 
+get '/mailer' do 
+end
+
 
 
 
