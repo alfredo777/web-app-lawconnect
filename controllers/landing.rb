@@ -299,7 +299,7 @@ post '/mailer' do
       {
         to: [
           {
-            email: "leon@soccerid.co"
+            email: "daniel.r@rand.com.mx"
           }
         ],
         subject: subjet
