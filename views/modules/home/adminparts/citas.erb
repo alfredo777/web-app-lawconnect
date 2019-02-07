@@ -14,22 +14,23 @@
 							<table class="table" id="default-datatable" >
 								<thead>
 									<tr>
+										<th>Fecha  <b style="color:blue;">(Click para Ordenar)</b></th>
 										<th>Token</th>
 										<th>Asunto </th>
-										<th>Fecha  <i class="zmdi-flag"></i></th>
 										<th>Llamada</th>
 									</tr>
 								</thead>
 								<tbody>
 									<% @citas.each do |cita| %>
 									<tr>
-										<td><a href='/admin/citas/<%=cita['id']%>'><%= cita['token'] %></a></td>
-										<td><%= cita['asunto'] %></td>
 										<td>
 											<% d = DateTime.parse(cita['fecha'])%>
 											<%= d.strftime("%m/%d/%Y a las  %I:%M%p") %>
 											
 										</td>
+										<td><a href='/admin/citas/<%=cita['id']%>'><%= cita['token'] %></a></td>
+										<td><%= cita['asunto'] %></td>
+										
 										<td><%= cita['programar_llamada'] %></td>
 									</tr>
 									<%end%>
@@ -43,10 +44,9 @@
 			</div><!--End Row-->
 		</div>
 	</div>
-
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#default-datatable').DataTable();
-	});
-	
-</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#default-datatable').DataTable();
+		});
+		
+	</script>
