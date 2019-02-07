@@ -16,7 +16,7 @@
 									<tr>
 										<th>Token</th>
 										<th>Asunto </th>
-										<th>Fecha</th>
+										<th>Fecha  <1 class="zmdi-flag"></1></th>
 										<th>Llamada</th>
 									</tr>
 								</thead>
@@ -24,12 +24,12 @@
 									<% @citas.each do |cita| %>
 									<tr>
 										<td><a href='/admin/citas/<%=cita['id']%>'><%= cita['token'] %></a></td>
+										<td><%= cita['asunto'] %></td>
 										<td>
 											<% d = DateTime.parse(cita['fecha'])%>
 											<%= d.strftime("%m/%d/%Y a las  %I:%M%p") %>
 											
 										</td>
-										<td><%= cita['asunto'] %></td>
 										<td><%= cita['programar_llamada'] %></td>
 									</tr>
 									<%end%>
