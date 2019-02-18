@@ -299,7 +299,7 @@ post '/mailer' do
       {
         to: [
           {
-            email: "daniel.r@rand.com.mx"
+            email: "citas@legalconnect.mx"
           }
         ],
         subject: subjet
